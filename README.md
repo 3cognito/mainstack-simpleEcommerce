@@ -9,4 +9,4 @@ This is a simple CRUD API written using Nodejs, Typescript, Express and MongoDB,
 
 ## Documentation
 
-- Click [here](https://documenter.getpostman.com/view/21313426/2s93CGQvJ4) to see documentation
+- Click [here](https://documenter.getpostman.com/view/21313426/2s93CGQvJ4) to see documentation and [here](https://mainstack-ecommerce-api.onrender.com) for the live api
