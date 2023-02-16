@@ -22,8 +22,7 @@ app.use(errorHandler);
 
 //Connect to database
 const connectToDb = async () => {
-  const uri =
-    "mongodb+srv://Tommy:JTARPweG7AYsdVjQ@cluster0.gidll0n.mongodb.net/test"; //Fix into env file
+  const uri = process.env.DB_URI || "";
   try {
     await mongoose.connect(uri);
     console.log("Connected to Database");
