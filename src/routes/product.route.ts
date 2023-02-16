@@ -5,11 +5,11 @@ const productRouter = express.Router();
 const productController = new ProductController();
 
 productRouter
-  .route("/")
+  .route("/product")
   .post(productController.createProduct)
   .get(productController.getAllProducts);
 productRouter
-  .route("/:id")
+  .route("/product/:id")
   .put(productController.updateProduct)
   .get(productController.getProduct)
   .delete(productController.deleteProduct);
