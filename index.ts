@@ -1,12 +1,24 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import * as dotenv from "dotenv";
 import productRouter from "./src/routes/product.route";
+import { errorHandler, notFound } from "./src/middlewares/globalError";
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/", async (req, res) => {
+  res.status(400).send("<h2>Hi, this API is up and running...</h2>");
+});
+
+app.use(productRouter);
+app.use(notFound);
+app.use(errorHandler);
 
 //Connect to database
 const connectToDb = async () => {
@@ -20,7 +32,6 @@ const connectToDb = async () => {
     process.exit(1);
   }
 };
-app.use(productRouter);
 
 //Start server
 const startExpressServer = async () => {
