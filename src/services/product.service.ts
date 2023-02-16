@@ -30,10 +30,7 @@ export class ProductServices implements ProductService {
     return product || null;
   }
 
-  async updateProduct(
-    id: string,
-    product: ProductInterface
-  ): Promise<ProductInterface | null> {
+  async updateProduct(id: string, product: ProductInterface): Promise<ProductInterface | null> {
     const updatedProduct = await Product.findByIdAndUpdate(id, product, {
       new: true,
     });

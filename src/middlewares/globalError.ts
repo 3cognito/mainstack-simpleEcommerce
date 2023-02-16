@@ -7,15 +7,10 @@ export async function notFound(req: Request, res: Response) {
   res.status(404).send({ message: "Not found, Route does not exist" });
 }
 
-export async function errorHandler(
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
-  if (process.env.NODE_ENV === "developmen") {
+export async function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
+  if (process.env.NODE_ENV === "dev") {
     console.error(err);
-  } else {
+  } else if (process.env.NODE_ENV === "prod") {
     //Handle mongoose validation and inavlid ids
     if (err instanceof mongoose.Error.ValidationError) {
       const errors: any = {};

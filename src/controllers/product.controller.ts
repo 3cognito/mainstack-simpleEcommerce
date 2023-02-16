@@ -9,11 +9,7 @@ export class ProductController {
     this.productService = new ProductServices();
   }
 
-  getAllProducts = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+  getAllProducts = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { page = 1, limit = 10 } = req.query;
       const pageNumber = +page ?? 1;
@@ -28,11 +24,7 @@ export class ProductController {
     }
   };
 
-  getProduct = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+  getProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { id } = req.params;
       const product = await this.productService.getProduct(id);
@@ -46,11 +38,7 @@ export class ProductController {
     }
   };
 
-  createProduct = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+  createProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const productData: IProduct = req.body;
       const newProduct = await this.productService.createProduct(productData);
@@ -60,11 +48,7 @@ export class ProductController {
     }
   };
 
-  updateProduct = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+  updateProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { id } = req.params;
       const productData: IProduct = req.body;
@@ -82,11 +66,7 @@ export class ProductController {
     }
   };
 
-  deleteProduct = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<void> => {
+  deleteProduct = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { id } = req.params;
       const deletedProduct = await this.productService.deleteProduct(id);
